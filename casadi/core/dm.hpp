@@ -70,16 +70,27 @@ namespace casadi {
 
   template<>
   Dict DM::info() const;
-
+  
+  #ifdef USE_FLOAT
+  template<>
+  void DM::to_file(const std::string& filename, const Sparsity& sp,
+    const float* nonzeros, const std::string& format);
+  #else
   template<>
   void DM::to_file(const std::string& filename, const Sparsity& sp,
     const double* nonzeros, const std::string& format);
+  #endif
 
   template<>
   DM DM::from_file(const std::string& filename, const std::string& format_hint);
 
 #ifndef CASADI_DM_INSTANTIATOR_CPP
+  #ifdef USE_FLOAT
+  extern template class Matrix<float>;
+  #else
   extern template class Matrix<double>;
+  #endif
+
 #endif // CASADI_DM_INSTANTIATOR_CPP
 
 } // namespace casadi

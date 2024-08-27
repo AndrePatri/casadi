@@ -1532,7 +1532,7 @@ namespace casadi {
   }
 
   template<typename Scalar>
-  Matrix<double> Matrix<Scalar>::from_file(const std::string& filename,
+  Matrix<Scalar> Matrix<Scalar>::from_file(const std::string& filename,
       const std::string& format_hint) {
     casadi_error("'from_file' not defined for " + type_name());
   }

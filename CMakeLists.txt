@@ -333,6 +333,12 @@ if(WITH_PYTHON AND MSVC)
 endif()
 option(WITH_COPYSIGN_UNDEF "On Windows, in Python.h #defines copysign to be _copysign. This option inserts an #undef" WITH_COPYSIGN_UNDEF_DEFAULT)
 
+
+option(USE_FLOAT OFF "use float for DM instead of double")
+if(${USE_FLOAT})
+    add_definitions(-DUSE_FLOAT)
+endif()
+
 ############################################################
 ################# Installation location ####################
 ############################################################

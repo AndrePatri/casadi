@@ -30,7 +30,12 @@
 
 namespace casadi {
 
+  #ifdef USE_FLOAT
+  typedef Matrix<float> DM;
+  #else
   typedef Matrix<double> DM;
+  #endif
+  
   typedef std::vector<DM> DMVector;
   typedef std::vector<DMVector> DMVectorVector;
   typedef std::map<std::string, DM> DMDict;
